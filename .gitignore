@@ -6,6 +6,7 @@
 !**/test-fixtures/**/*.json
 .env
 .env.*
+!.env.example
 vault.md
 *key*.json
 *credentials*.json
