@@ -1,0 +1,41 @@
+# secrets / credentials
+*.json
+!package.json
+!package-lock.json
+!tsconfig*.json
+!**/test-fixtures/**/*.json
+.env
+.env.*
+vault.md
+*key*.json
+*credentials*.json
+*token*.json
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# node
+node_modules/
+dist/
+build/
+.next/
+.turbo/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+desktop.ini
+Thumbs.db
+
+# logs / tmp
+*.log
+logs/
+tmp/
+.cache/
