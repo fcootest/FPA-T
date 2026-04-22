@@ -1,10 +1,11 @@
 """R20 API routes (ISP S2 scaffold + S3 schema + S4 load)."""
 from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
-from models.R20_record_model import R20ValidationResult, R20IngestResponse, R20RecordModel
+from models.R20_record_model import R20RecordModel, R20ValidationResult, R20IngestResponse
 from services.auth_service import UserContext, get_current_user
 from services.R20_render_service import r20_get_schema
 from services.R20_query_builder import r20_load
+from services.R20_validation_service import r20_validate
 
 
 router = APIRouter(prefix="/api/fpa-t/r20", tags=["R20"])
@@ -40,8 +41,9 @@ async def post_submit(role: str, variant: Optional[str] = Query(default=None)):
 
 
 @router.post("/{role}/validate")
-async def post_validate(role: str):
-    raise HTTPException(501, detail="not implemented (Wave 3 S5)")
+async def post_validate(role: str, records: list[R20RecordModel]) -> R20ValidationResult:
+    """S5 — preview validation (no side effects)."""
+    return r20_validate(role, records)
 
 
 @router.get("/batch/{batch_id}")
