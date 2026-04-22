@@ -27,6 +27,7 @@ dist/
 build/
 .next/
 .turbo/
+*.tsbuildinfo
 
 # IDE / OS
 .vscode/
